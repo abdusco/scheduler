@@ -7,18 +7,16 @@
 #include "Program.h"
 
 enum ProcessStatus {
-    // process is being created
-            NEW,
-    // instructions are being executed
-            RUNNING,
-    // process is waiting for an event to occur
-            WAITING,
-    // process is waiting to be assigned to CPU
-            READY,
-    // process has finished execution
-            TERMINATED
+    NEW, /** Process is being created */
+    RUNNING, /** Instructions are being executed */
+    WAITING, /** Process is waiting for an event to occur */
+    READY, /** Process is waiting to be assigned to CPU */
+    TERMINATED /** Process has finished execution */
 };
 
+/**
+ * \brief Represents a Process Control Block
+ * */
 class Process {
     Program program;
     const std::string name;

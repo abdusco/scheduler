@@ -4,6 +4,9 @@
 
 #include "Process.h"
 
+/**
+ * \brief Keeps a list of Process pointers and allows iteration.
+ * */
 class ProcessList {
     std::vector<Process*> processes;
 public:

@@ -6,6 +6,10 @@ enum InstructionType {
     NORMAL
 };
 
+/**
+ * \brief Describes an instruction.
+ *
+ * */
 class Instruction {
 public:
     unsigned int time;

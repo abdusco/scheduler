@@ -5,6 +5,9 @@
 #include <vector>
 #include "Instruction.h"
 
+/**
+ * \brief Keeps a list of instructions, ending with an EXIT instruction
+ * */
 typedef std::vector<Instruction> Program;
 
 
