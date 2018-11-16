@@ -16,11 +16,9 @@ int main(int argc, char* argv[]) {
     InputParser p(inputDir);
     auto ps = p.getProcesses();
 
-    for (Process& proc : ps) {
-        std::cout << proc << std::endl;
+    for (Process* proc : ps) {
+        std::cout << *proc << std::endl;
     }
 
-
-    std::cout << argv[1] << std::endl;
     return 0;
 }

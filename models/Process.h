@@ -29,7 +29,19 @@ class Process {
     unsigned int waitingTime = 0;
     unsigned int finishedTime;
 public:
-    Process(std::string name, unsigned int priority, const Program& program, unsigned int arrivalTime);
+    Process(const Program& program, std::string name, unsigned int priority, unsigned int arrivalTime);
+
+    void begin(unsigned int clock);
+
+    void complete(unsigned int clock);
+
+    unsigned int getTurnaround();
+
+    void updateStatus(ProcessStatus status);
+
+    bool isTerminated();
+
+    void runNextInstruction();
 
     friend std::ostream& operator<<(std::ostream& os, const Process& process);
 };

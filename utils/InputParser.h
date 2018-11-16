@@ -4,6 +4,7 @@
 
 #include <string>
 #include "../models/Process.h"
+#include "../models/ProcessList.h"
 
 class InputParser {
 #if defined _WIN32 || defined __CYGWIN__
@@ -12,7 +13,7 @@ class InputParser {
     const std::string PATH_SEPARATOR("/");
 #endif
     const std::string inputDir;
-    std::vector<Process> processes;
+    std::vector<Process*> processes;
 
     void readDefinition(std::string definitionPath);
 
@@ -22,7 +23,8 @@ class InputParser {
 
 public:
     InputParser(const std::string& definitionsPath);
-    std::vector<Process> getProcesses();
+
+    ProcessList getProcesses();
 };
 
 

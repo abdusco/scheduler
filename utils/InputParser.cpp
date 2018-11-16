@@ -7,6 +7,7 @@
 #include <sstream>
 
 #include "InputParser.h"
+#include "../models/ProcessList.h"
 
 /**
  * \brief ProcessReader constructor
@@ -44,7 +45,7 @@ void InputParser::readDefinition(std::string definitionPath) {
 
         auto prog = readProgram(combinePath(inputDir, codeFilename + ".txt"));
 
-        auto parsedProcess = Process(name, priority, prog, arrivalTime);
+        auto parsedProcess = new Process(prog, name, priority, arrivalTime);
         processes.push_back(parsedProcess);
     }
 }
@@ -105,8 +106,8 @@ Program InputParser::readProgram(std::string codePath) {
  *
  * Returns processed parsed using definition and code files
  * */
-std::vector<Process> InputParser::getProcesses() {
-    return processes;
+ProcessList InputParser::getProcesses() {
+    return ProcessList(processes);
 }
 
 
