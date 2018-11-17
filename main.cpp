@@ -6,7 +6,7 @@
 
 int main(int argc, char* argv[]) {
     if (argc < 3) {
-        std::cout << "Syntax: ./project3 <input_file> <output_file> [verbose]" << std::endl;
+        std::cout << "Syntax: ./scheduler <input_directory> <output_file> [verbose]" << std::endl;
         std::cout << "(add any character to the end to output results to the console)" << std::endl;
         return 1;
     }
