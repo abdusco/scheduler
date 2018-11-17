@@ -9,10 +9,16 @@
  * */
 class ProcessList {
     std::vector<Process*> processes;
+
+    void sortByArrivalTime();
+
+    static bool processArrivedEarlier(const Process* process, const Process* other);
+
 public:
     explicit ProcessList(std::vector<Process*> processes);
 
     ~ProcessList();
+
 
     std::vector<Process*>::iterator begin();
 
@@ -21,6 +27,8 @@ public:
     std::vector<Process*>::iterator end();
 
     std::vector<Process*>::const_iterator end() const;
+
+    Process* operator[] (unsigned int index) const;
 };
 
 

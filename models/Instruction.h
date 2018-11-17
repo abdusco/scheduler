@@ -12,10 +12,12 @@ enum InstructionType {
  * */
 class Instruction {
 public:
-    unsigned int time;
-    InstructionType type;
+    const unsigned int time;
+    const InstructionType type;
 
     Instruction(InstructionType type, unsigned int time);
+    bool isLast();
+    unsigned int getDuration();
 };
 
 

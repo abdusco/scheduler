@@ -3,6 +3,8 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include "utils/InputParser.h"
+#include "models/Scheduler.h"
+#include "models/EventLog.h"
 
 int main(int argc, char* argv[]) {
     if (argc < 3) {
@@ -16,9 +18,11 @@ int main(int argc, char* argv[]) {
     InputParser p(inputDir);
     auto ps = p.getProcesses();
 
-    for (Process* proc : ps) {
-        std::cout << *proc << std::endl;
-    }
+    EventLog events;
+    Scheduler scheduler(ps, events);
+    scheduler.run();
+
+    std::cout << events << std::endl;
 
     return 0;
 }

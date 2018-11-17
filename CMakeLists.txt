@@ -3,4 +3,13 @@ project(scheduler)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(scheduler main.cpp utils/InputParser.cpp utils/InputParser.h models/Process.cpp models/Process.h models/Program.cpp models/Program.h models/Instruction.cpp models/Instruction.h models/ProcessList.cpp models/ProcessList.h)
+add_executable(scheduler
+        main.cpp
+        utils/InputParser.cpp utils/InputParser.h
+        models/Process.cpp models/Process.h
+        models/Program.cpp models/Program.h
+        models/Instruction.cpp models/Instruction.h
+        models/ProcessList.cpp models/ProcessList.h
+        models/Scheduler.cpp models/Scheduler.h
+        models/EventLog.cpp models/EventLog.h
+        )
