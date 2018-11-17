@@ -1,9 +1,6 @@
 #include <utility>
 #include <fstream>
-#include <sys/stat.h>
-#include <sys/types.h>
 #include <iostream>
-#include <stdexcept>
 #include <sstream>
 
 #include "InputParser.h"
@@ -61,5 +58,3 @@ Program InputParser::readProgram(std::string codePath) {
 ProcessList InputParser::getProcesses() {
     return ProcessList(processes);
 }
-
-
