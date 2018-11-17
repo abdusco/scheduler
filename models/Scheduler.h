@@ -2,7 +2,6 @@
 #define SCHEDULER_SCHEDULER_H
 
 #include <queue>
-#include <functional>
 
 #include "ProcessList.h"
 #include "EventLog.h"

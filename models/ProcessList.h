@@ -1,7 +1,6 @@
 #ifndef SCHEDULER_PROCESSLIST_H
 #define SCHEDULER_PROCESSLIST_H
 
-
 #include "Process.h"
 
 /**
