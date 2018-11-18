@@ -28,6 +28,8 @@ void Scheduler::run() {
                 break;
             }
         }
+
+        checkForNewProcess();
     }
 }
 
