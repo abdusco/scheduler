@@ -35,6 +35,8 @@ public:
     explicit Scheduler(const ProcessList& processes, EventLog& eventLogger);
 
     void run();
+
+    void logProcesses();
 };
 
 

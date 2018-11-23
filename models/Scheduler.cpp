@@ -31,6 +31,8 @@ void Scheduler::run() {
 
         checkForNewProcess();
     }
+
+    logProcesses();
 }
 
 void Scheduler::popReadyQueue() {
@@ -84,6 +86,11 @@ void Scheduler::pushReadyQueue(Process* process) {
 void Scheduler::logQueue() {
     std::ostringstream entry;
 
+    if (readyQueue.empty()) {
+        entry << clock << ":HEAD--TAIL";
+        return eventLogger.log(entry.str());
+    }
+
     entry << clock << ":";
     entry << "HEAD";
     for (Process* process : readyQueue) {
@@ -92,6 +99,21 @@ void Scheduler::logQueue() {
     entry << "-TAIL";
 
     eventLogger.log(entry.str());
+}
+
+void Scheduler::logProcesses() {
+    std::ostringstream times;
+    for (Process* process : processes) {
+        times << "Turnaround time for " << process->name
+              << " = "
+              << process->getTurnaround() << std::endl;
+
+        times << "Waiting time for " << process->name
+              << " = "
+              << process->getWait() << std::endl;
+    }
+    eventLogger.log("");
+    eventLogger.log(times.str());
 }
 
 
