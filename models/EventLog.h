@@ -7,9 +7,8 @@
 #include <ostream>
 
 class EventLog {
-public:
     std::vector<std::string> logs;
-
+public:
     void log(std::string entry);
 
     friend std::ostream& operator<<(std::ostream& os, const EventLog& log);
