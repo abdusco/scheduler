@@ -28,7 +28,7 @@ unsigned int Process::stepForward(unsigned long clock) {
 
     Instruction& instruction = program.at(programCounter++);
     if (instruction.isLast()) {
-        setStatus(TERMINATED, clock);
+        setStatus(TERMINATED, clock + instruction.getDuration());
     }
 
     return instruction.getDuration();
