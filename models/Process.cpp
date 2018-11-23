@@ -9,10 +9,6 @@ Process::Process(const Program& program, std::string name, unsigned int priority
           priority(priority),
           arrivalTime(arrivalTime) {}
 
-unsigned long Process::getTurnaround() {
-    return finishTime - processTime;
-}
-
 /**
  * \brief Runs the next instruction of the program associated with the process.
  * Also sets process status depending on which instruction is being executed
@@ -48,15 +44,23 @@ bool Process::canStart(unsigned long clock) {
     return clock >= arrivalTime;
 }
 
-
 /**
- * \brief Returns waited time.
+ * \brief Waited time.
  *
  * Waiting time is the sum of all times
  * that the process spends in the ready queue without being processed
  * */
 unsigned long Process::getWait() {
-    return finishTime - readyTime - arrivalTime;
+    return processTime - arrivalTime;
+}
+
+/**
+ * \brief Turnaround time
+ *
+ * Turnaround time is the total elapsed time from arrival to completion
+ * */
+unsigned long Process::getTurnaround() {
+    return finishTime - arrivalTime;
 }
 
 /**

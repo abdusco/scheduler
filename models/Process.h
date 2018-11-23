@@ -30,8 +30,8 @@ class Process {
     unsigned int finishTime = 0;
     /** Process priority. Lower values are more important */
     const unsigned int priority;
-    const std::string name;
 public:
+    const std::string name;
     /** Timestamp for when the process was created */
     const unsigned int arrivalTime;
 
