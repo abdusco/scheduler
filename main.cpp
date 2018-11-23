@@ -5,13 +5,9 @@
 #include "models/EventLog.h"
 
 int main(int argc, char* argv[]) {
-    if (argc < 3) {
-        std::cout << "Syntax: ./scheduler <input_directory> <output_file> [verbose]" << std::endl;
-        std::cout << "(add any character to the end to output results to the console)" << std::endl;
-        return 1;
-    }
-    bool verbose = argc > 3;
-    std::string inputDir = std::string(argv[1]);
+    std::string inputDir = argc < 2 ?
+                           "." : // default to cwd
+                           std::string(argv[1]); // use given directory
 
     InputParser p(inputDir);
     auto ps = p.getProcesses();
@@ -20,7 +16,9 @@ int main(int argc, char* argv[]) {
     Scheduler scheduler(ps, events);
     scheduler.run();
 
-    std::cout << events << std::endl;
+    std::ofstream output(p.combinePath(inputDir, "output.txt"));
+    output << events << std::endl;
 
+    std::cout << events << std::endl;
     return 0;
 }

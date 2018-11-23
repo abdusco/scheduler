@@ -35,14 +35,6 @@ class InputParser {
     void readDefinition(std::string definitionPath);
 
     /**
-     * \brief Combines given directory path with filename. Adds slashes as needed
-     * \returns relative or absolute path depending on the argument dir
-     * \param dir path to directory. Relative or absolute
-     * \param file path to file starting from dir
-     * */
-    std::string combinePath(std::string dir, std::string file);
-
-    /**
      * \brief Read a code file into a list of instructions
      * \param codePath the path to code file
      * \returns list of instructions
@@ -64,12 +56,20 @@ class InputParser {
     Program readProgram(std::string codePath);
 
 public:
+
+    /**
+     * \brief Combines given directory path with filename. Adds slashes as needed
+     * \returns relative or absolute path depending on the argument dir
+     * \param dir path to directory. Relative or absolute
+     * \param file path to file starting from dir
+     * */
+    std::string combinePath(std::string dir, std::string file);
     /**
      * \brief ProcessReader constructor
      * \param inputDir Path to directory that contains definition.txt and code files for processes.
      *
      * */
-    InputParser(const std::string& definitionsPath);
+    explicit InputParser(const std::string& definitionsPath);
 
     /**
      * \brief Parsed processes
